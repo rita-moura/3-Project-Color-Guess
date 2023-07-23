@@ -10,10 +10,7 @@ window.addEventListener('load', () => {
     return colors[index];
   }
 
-  document.getElementById('circle1').style.backgroundColor = getRandomColor();
-  document.getElementById('circle2').style.backgroundColor = getRandomColor();
-  document.getElementById('circle3').style.backgroundColor = getRandomColor();
-  document.getElementById('circle4').style.backgroundColor = getRandomColor();
-  document.getElementById('circle5').style.backgroundColor = getRandomColor();
-  document.getElementById('circle6').style.backgroundColor = getRandomColor();
+  for (let index = 1; index < 7; index += 1) {
+    document.getElementById(`circle${index}`).style.backgroundColor = getRandomColor();
+  }
 });
