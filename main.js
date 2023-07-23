@@ -56,6 +56,7 @@ resetButton.addEventListener('click', () => {
   });
 
   circles.forEach((circle) => {
+    // eslint-disable-next-line no-param-reassign
     circle.style.backgroundColor = '';
   });
 
