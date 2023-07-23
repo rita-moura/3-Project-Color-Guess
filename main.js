@@ -1,6 +1,7 @@
 // main.js
 const circles = document.querySelectorAll('.ball');
 const answerElement = document.getElementById('answer');
+const resetButton = document.getElementById('reset-game');
 
 function getRandomColorRGB() {
   const r = Math.floor(Math.random() * 256);
@@ -34,12 +35,24 @@ function initializeGame() {
 
   circles.forEach((circle) => {
     if (circle.style.backgroundColor !== targetColorRGB) {
-      const randomColor = getRandomColorRGB();
-      circle.style.backgroundColor = randomColor;
+      // eslint-disable-next-line no-param-reassign
+      circle.style.backgroundColor = getRandomColorRGB();
     }
     circle.addEventListener('click', checkColor);
   });
   answerElement.innerText = 'Escolha uma cor';
 }
+
+resetButton.addEventListener('click', () => {
+  circles.forEach((circle) => {
+    circle.removeEventListener('click', checkColor);
+  });
+
+  circles.forEach((circle) => {
+    circle.style.backgroundColor = '';
+  });
+
+  initializeGame();
+});
 
 initializeGame();
